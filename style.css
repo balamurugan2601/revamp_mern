@@ -1,8 +1,16 @@
-p{
-    color : red;
+.para1{
+    color : rgb(3, 182, 3);
+    font-size: 20px;
+    font-family: Helvetica;
+    font-weight: 800;
+    text-align: justify;
 }
 
-*{
-    margin: 0%;
-    padding: 0%;
+#head{
+    color: blue;
+    font-family: "Poetsen One",sans-serif;
+    font-size: 40px;
+    font-weight:600;
+    text-align: center;
+    text-decoration: underline;
 }
