@@ -1,0 +1,18 @@
+p{
+    color: #ff0000;
+    font-family: "Noto Sans JP", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-variant: small-caps;
+    font-size: xx-large;
+    font-style: normal;
+}
+
+.container{
+    width: 600px;
+    height: 300px;
+    padding-left: 100px;
+    margin: 20px;
+    
+    background-color: rgb(197, 161, 230);
+}       
