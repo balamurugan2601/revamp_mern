@@ -7,9 +7,6 @@
 .text1{
     text-align: center;
     text-justify: auto;
-    font-[Roboto];
+    font-family: Roboto;
     color: white;
-}
-
-.button{
 }
