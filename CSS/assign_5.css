@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+.bg{
+    background-image: url(https://ik.imagekit.io/4z8covdo9/Full%20stack/todolistbg.png?updatedAt=1700761069523);
+}
+
+.text1{
+    text-align: center;
+    text-justify: auto;
+    font-[Roboto];
+    color: white;
+}
+
+.button{
+}
