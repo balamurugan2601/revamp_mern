@@ -1,16 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-@font-face {
-    font-family: nebulica;
-    src: url(./Nebulica/Nebulica-Medium-iF6628d48893657.otf);
-}
-
-@font-face {
-    font-family: helvetica;
-    src: url(./helvetica/HelveticaNeueMedium.otf);
-}
-
-@font-face {
-    font-family: Mabry;
-    src: url(./MabryPro-Medium/MabryPro-Medium.ttf);
+.bg1{
+    background-image: url("https://ik.imagekit.io/shyambala/foodmunch-banner-bg.png?updatedAt=1745958437551");
+    background-size: cover;
+    height: 100vh;
+    
 }
