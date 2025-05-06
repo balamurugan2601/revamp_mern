@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./Satoshi_Complete/Fonts/WEB/css/satoshi.css">
+</head>
+<body>
+    <div class="w-full mx-auto h-screen flex flex-col items-center justify-center bg-purple-200">
+        <h1 class="text-[30px] font-[Satoshi-Bold]">COUNTER</h1>
+        <p id="count" class="text-[75px] font-[Satoshi-Bold]">0</p>
+        <div class="font-[Satoshi-bold] text-[10px] space-x-5">
+            <button id="dec" class="border-black bg-purple-100 rounded-md  text-black border-[1.5px] px-1 py-1.5 hover:bg-slate-800 hover:text-white">DECREASE</button>
+            <button id="res" class="border-black bg-purple-100 rounded-md  text-black border-[1.5px] px-1 py-1.5 hover:bg-slate-800 hover:text-white">RESET</button>
+            <button id="ins" class="border-black bg-purple-100 rounded-md  text-black border-[1.5px] px-1 py-1.5 hover:bg-slate-800 hover:text-white">INCREASE</button>
+        </div>
+    </div>
+
+    <script>
+        var dec = document.getElementById("dec");
+        var ins = document.getElementById("ins");
+        var res = document.getElementById("res");
+        var count = document.getElementById("count");
+
+        ins.addEventListener("click",()=>{
+            count.textContent = parseInt(count.textContent)+1;
+            var value = parseInt(count.textContent);
+            if(value>0){
+                count.style.color="green";
+            }
+            else if(value<0){
+                count.style.color="red";
+            }
+            else{
+                count.style.color="black";
+            }
+        });
+        dec.addEventListener("click",()=>{
+            count.textContent = parseInt(count.textContent)-1;
+            var value = parseInt(count.textContent);
+            if(value>0){
+                count.style.color="green";
+            }
+            else if(value<0){
+                count.style.color="red";
+            }
+            else{
+                count.style.color="black";
+            }
+        });
+        res.addEventListener("click",()=>{
+            count.textContent = 0;
+            var value = parseInt(count.textContent);
+            if(value>0){
+                count.style.color="green";
+            }
+            else if(value<0){
+                count.style.color="red";
+            }
+            else{
+                count.style.color="black";
+            }
+        });
+        
+
+    </script>
+
+</body>
+</html>
