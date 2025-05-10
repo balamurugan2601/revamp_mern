@@ -3,5 +3,5 @@
 .bg1{
     background-image: url("https://ik.imagekit.io/shyambala/foodmunch-banner-bg.png?updatedAt=1745958437551");
     background-size: cover;
-    height: 100vh;
+    background-position: center;
 }

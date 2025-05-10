@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="2xl:container mx-auto bg-pink-300">
+      <div
+        class="w-fit h-screen mx-auto flex flex-col justify-center items-center gap-3"
+      >
+        <h1 class="text-6xl font-black">COUNTER</h1>
+        <p id="value" class="text-6xl font-black text-white borderk">0</p>
+        <div class="flex gap-2">
+          <button
+            id="start"
+            class="text-3xl bg-green-300 rounded-lg px-2 border border-black"
+          >
+            START
+          </button>
+          <button
+            id="reset"
+            class="text-3xl bg-blue-300 rounded-lg px-2 border border-black"
+          >
+            RESET
+          </button>
+          <button
+            id="stop"
+            class="text-3xl bg-red-300 rounded-lg px-2 border border-black"
+          >
+            STOP
+          </button>
+        </div>
+      </div>
+    </div>
+    <script>
+      var start = document.getElementById("start");
+      var value = document.getElementById("value");
+      var stop = document.getElementById("stop");
+      var reset = document.getElementById("reset");
+      var countt;
+
+      start.addEventListener("click", () => {
+        countt = setInterval(() => {
+          value.textContent = parseInt(value.textContent) + 1;
+        }, 1000);
+      });
+
+      stop.addEventListener("click", () => {
+        clearInterval(countt);
+      });
+
+      reset.addEventListener("click", () => {
+        clearInterval(countt);
+        value.textContent = "0";
+      });
+    </script>
+  </body>
+</html>
