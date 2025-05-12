@@ -3,8 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FORM</title>
-    <!--FireBase SDK-->
+    <title>Form1</title>
     <script
       defer
       src="https://www.gstatic.com/firebasejs/8.10.1/firebase.js"
@@ -24,42 +23,42 @@
     />
   </head>
   <body>
-    <div class="2xl:container mx-auto bg-purple-400">
-      <div class="w-[95%] mx-auto flex justify-center items-center h-screen">
+    <div
+      class="2xl:container mx-auto bg-[url(https://ik.imagekit.io/shyambala/wmremove-transformed.jpeg?updatedAt=1747067663456)]"
+    >
+      <div
+        class="w-[95%] bright h-screen mx-atuo flex flex-col justify-center items-center"
+      >
         <div
-          class="bg-white/20 border border-white/30 rounded-xl shadow-lg p-10 font-[Chillax-regular]"
+          class="bg-green-900 border border-white/20 rounded-xl p-6 shadow-lg w-[250px]"
         >
-          <h1 class="text-white text-2xl text-center font-[Chillax-Bold]">
+          <h1 class="text-2xl text-center text-white font-[Chillax-Bold]">
             LOGIN
           </h1>
-          <hr class="mt-3" />
+          <hr class="mt-4" />
           <form class="flex flex-col gap-4 mt-4" id="form">
             <div class="space-y-2">
-              <label for="email" class="text-xl text-white">Email :</label>
-              <br />
+              <label for="text" class="text-white text-2xl">Email :</label
+              ><br />
               <input
                 type="text"
                 id="email"
-                name="email"
-                class="border border-gray-300 rounded-md p-2 mt-2"
+                class="rounded-lg py-1.5 px-2 text-xl w-full"
               />
-              <p class="text-sm text-red-600" id="emailerror"></p>
+              <p class="text-sm text-red-200" id="emailerror"></p>
             </div>
             <div class="space-y-2">
-              <label for="password" class="text-xl text-white"
-                >Password :</label
-              >
-              <br />
+              <label for="text" class="text-white text-2xl">Password :</label
+              ><br />
               <input
-                type="password"
+                type="text"
                 id="pass"
-                name="password"
-                class="border border-gray-300 rounded-md p-2 mt-2"
+                class="rounded-lg py-1.5 px-2 text-xl w-full"
               />
-              <p class="text-sm text-red-600" id="passerror"></p>
+              <p class="text-sm text-red-200" id="passerror"></p>
             </div>
             <button
-              class="bg-green-600 text-white rounded-lg border border-green-600 py-2 mt-2 hover:bg-white hover:border hover:border-green-600 hover:text-green-600 text-xl"
+              class="mt-3 text-xl bg-green-500 rounded-lg py-1 border border-green-500 text-white hover:border-green-500 hover:bg-white hover:text-green-500"
               id="submit"
             >
               LOGIN
@@ -91,7 +90,7 @@
       function savedata(email, pass) {
         firebase.initializeApp(firebaseConfig);
 
-        const db = firebase.database().ref("ReqForm");
+        const db = firebase.database().ref("dB");
 
         db.push({
           email: email,
@@ -99,69 +98,62 @@
         });
       }
 
-      form.addEventListener("submit", (e) => {
+      form.addEventListener("submit", function (e) {
         e.preventDefault();
-        let isValid = validation(email.value, pass.value);
-
-        if (isValid) {
-          console.log("Data sent to DB");
-          savedata(email.value, pass.value);
-        }
+        let isValid = aValidation(email.value, pass.value);
+        savedata(email.value, pass.value);
       });
 
       email.addEventListener("input", (e) => {
         const emailregex = /^\S+@\S+\.\S+$/;
         if (e.target.value == "") {
-          emailerror.textContent = "Email cannot be empty";
+          emailerror.textContent = "Email is required";
         } else if (!e.target.value.match(emailregex)) {
           emailerror.textContent = "Email format : Coding@gmail.com";
         } else {
           emailerror.textContent = "";
         }
       });
+
       pass.addEventListener("input", (e) => {
         const passregex =
           /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
-
         if (e.target.value == "") {
-          passerror.textContent = "Password cannot be empty";
+          passerror.textContent = "Password is required";
         } else if (!e.target.value.match(passregex)) {
-          passerror.textContent =
-            "Password format : Coding@123";
+          passerror.textContent = "Password format : Coding@123";
         } else {
           passerror.textContent = "";
         }
       });
 
-      function validation(email, pass) {
+      function aValidation(email, pass) {
         const emailregex = /^\S+@\S+\.\S+$/;
         const passregex =
           /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+
         let isValid = true;
 
         if (email.match(emailregex)) {
-          console.log("valid email");
-          emailerror.textContent = "";
+          console.log("Valid email");
         } else {
-          console.log("invalid email");
-          emailerror.textContent = "invalid email";
-          isValid = false;
+          console.log("Invalid emmail");
         }
 
         if (pass.match(passregex)) {
-          console.log("valid password");
-          passerror.textContent = "";
+          console.log("Valid password");
         } else {
-          console.log("invalid password");
-          passerror.textContent = "invalid password";
-          isValid = false;
+          console.log("Invalid password");
         }
 
-        if (isValid == true) {
-          setTimeout(() => {
-            form.reset();
-          },2000);
+        if (isValid) {
+          console.log("Data sent to DB");
         }
+
+        setTimeout(() => {
+          form.reset();
+        }, 2000);
+
         return isValid;
       }
     </script>
