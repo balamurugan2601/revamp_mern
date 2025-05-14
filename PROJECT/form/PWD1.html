@@ -26,9 +26,7 @@
     <div
       class="2xl:container mx-auto bg-[url(https://ik.imagekit.io/shyambala/wmremove-transformed.jpeg?updatedAt=1747067663456)]"
     >
-      <div
-        class="w-[95%] h-screen mx-atuo flex justify-center items-center"
-      >
+      <div class="w-[95%] h-screen mx-atuo flex justify-center items-center">
         <div
           class="bg-white/20 border border-white/20 backdrop-blur-xl rounded-xl p-6 shadow-lg w-[250px]"
         >
@@ -38,46 +36,47 @@
           <hr class="mt-4" />
           <form class="flex flex-col gap-4 mt-4" id="form">
             <div>
-              <label for="text" class="text-green-900 text-2xl">Email :</label
+              <label for="text" class="text-green-900 text-2xl"
+                >New Password</label
               ><br />
               <input
                 type="text"
-                id="email"
+                id="newpass"
                 class="rounded-lg py-1.5 px-2 text-xl w-full"
-                placeholder="Enter your email"
+                placeholder="Create new password"
               />
-              <p class="text-sm text-red-600" id="emailerror"></p>
+              <p class="text-sm text-red-600" id="error"></p>
             </div>
             <div>
               <label for="text" class="text-green-900 text-2xl"
-                >Password :</label
+                >Confirm Password</label
               ><br />
               <input
                 type="text"
-                id="pass"
+                id="conpass"
                 class="rounded-lg py-1.5 px-2 text-xl w-full"
-                placeholder="Enter your password"
+                placeholder="Confirm your password"
               />
-              <p class="text-sm text-red-600" id="passerror"></p>
+              <p class="text-sm text-red-600" id="error1"></p>
             </div>
+            
             <button
-            class="mt-2 text-xl bg-green-900 rounded-lg py-1 border border-green-900 text-white hover:border-green-900 hover:bg-white hover:text-green-900"
-            id="submit"
+              class="mt-2 text-xl bg-green-900 rounded-lg py-1 border border-green-900 text-white hover:border-green-900 hover:bg-white hover:text-green-900"
+              id="submit"
             >
-            LOGIN
-          </button>
-          <a href="./PWD1.html" target="_blank" class="text-center underline">reset password?</a>
+              UPDATE PASSWORD
+            </button>
           </form>
         </div>
-      </div>                                                
+      </div>
     </div>
 
     <script>
       var form = document.getElementById("form");
-      var email = document.getElementById("email");
-      var pass = document.getElementById("pass");
-      var emailerror = document.getElementById("emailerror");
-      var passerror = document.getElementById("passerror");
+      var newpass = document.getElementById("newpass");
+      var conpass = document.getElementById("conpass");
+      var error = document.getElementById("error");
+      var erro1 = document.getElementById("erro1");
       var submit = document.getElementById("submit");
 
       const firebaseConfig = {
@@ -94,7 +93,7 @@
       function savedata(email, pass) {
         firebase.initializeApp(firebaseConfig);
 
-        const db = firebase.database().ref(db, "users/"+uid);
+        const db = firebase.database().ref("dB");
 
         db.push({
           email: email,
@@ -102,56 +101,53 @@
         });
       }
 
-      form.addEventListener("submit", function (e) {
+      form.addEventListener("submit", (e) => {
         e.preventDefault();
-        let isValid = aValidation(email.value, pass.value);
-        savedata(email.value, pass.value);
+        let isValid = validation(newpass.value, conpass.value);
       });
 
-      email.addEventListener("input", (e) => {
-        const emailregex = /^\S+@\S+\.\S+$/;
-        if (e.target.value == "") {
-          emailerror.textContent = "Email is required";
-        } else if (!e.target.value.match(emailregex)) {
-          emailerror.textContent = "Email format : Coding@gmail.com";
-        } else {
-          emailerror.textContent = "";
-        }
-      });
-
-      pass.addEventListener("input", (e) => {
-        const passregex =
+      newpass.addEventListener("input", (e) => {
+        const regex =
           /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
         if (e.target.value == "") {
-          passerror.textContent = "Password is required";
-        } else if (!e.target.value.match(passregex)) {
-          passerror.textContent = "Password format : Coding@123";
+          error.textContent = "Required*";
+        } else if (!e.target.value.match(regex)) {
+          error.textContent = "Format : Coding@123";
         } else {
-          passerror.textContent = "";
+          error.textContent = "";
         }
       });
 
-      function aValidation(email, pass) {
-        const emailregex = /^\S+@\S+\.\S+$/;
-        const passregex =
-          /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
-
-        let isValid = true;
-
-        if (email.match(emailregex)) {
-          console.log("Valid email");
+      conpass.addEventListener("input", (e) => {
+        if (e.target.value == "") {
+          error1.textContent = "Required*";
+        } else if (e.target.value != newpass.value) {
+          error1.textContent = "Password not matched";
         } else {
-          console.log("Invalid emmail");
+          error1.textContent = "";
+        }
+      });
+
+      function validation(newpass, oldpass) {
+        const isValid = true;
+        if ((newpass == "") & (oldpass == "")) {
+          error.textContent = "Required*";
+          error1.textContent = "Required*";
+          isValid = false;
+        } else if (newpass == "") {
+          error.textContent = "Required*";
+          isValid = false;
+        } else if (oldpass == "") {
+          error1.textContent = "Required*";
+          isValid = false;
+        } else {
+          error.textContent = "";
+          error1.textContent = "";
         }
 
-        if (pass.match(passregex)) {
-          console.log("Valid password");
-        } else {
-          console.log("Invalid password");
-        }
-
-        if (isValid) {
-          console.log("Data sent to DB");
+        if (newpass != oldpass) {
+          isValid = false;
+          console.log("New password should not be same as old password");
         }
 
         setTimeout(() => {
