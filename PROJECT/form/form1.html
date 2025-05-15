@@ -26,9 +26,7 @@
     <div
       class="2xl:container mx-auto bg-[url(https://ik.imagekit.io/shyambala/wmremove-transformed.jpeg?updatedAt=1747067663456)]"
     >
-      <div
-        class="w-[95%] h-screen mx-atuo flex justify-center items-center"
-      >
+      <div class="w-[95%] h-screen mx-atuo flex justify-center items-center">
         <div
           class="bg-white/20 border border-white/20 backdrop-blur-xl rounded-xl p-6 shadow-lg w-[250px]"
         >
@@ -36,10 +34,9 @@
             LOGIN
           </h1>
           <hr class="mt-4" />
-          <form class="flex flex-col gap-4 mt-4" id="form">
-            <div>
-              <label for="text" class="text-green-900 text-2xl">Email :</label
-              ><br />
+          <form class="flex flex-col gap-2 mt-4" id="form">
+            <div class="space-y-2">
+              <label for="text" class="text-green-900 text-2xl">Email :</label>
               <input
                 type="text"
                 id="email"
@@ -48,118 +45,32 @@
               />
               <p class="text-sm text-red-600" id="emailerror"></p>
             </div>
-            <div>
+            <div class="space-y-2">
               <label for="text" class="text-green-900 text-2xl"
                 >Password :</label
-              ><br />
+              >
               <input
-                type="text"
+                type="password"
                 id="pass"
-                class="rounded-lg py-1.5 px-2 text-xl w-full"
+                class="rounded-lg py-1.5 px-2 text-xl w-full bg-white"
                 placeholder="Enter your password"
               />
               <p class="text-sm text-red-600" id="passerror"></p>
             </div>
             <button
-            class="mt-2 text-xl bg-green-900 rounded-lg py-1 border border-green-900 text-white hover:border-green-900 hover:bg-white hover:text-green-900"
-            id="submit"
+              class="mt-2 text-xl bg-green-900 rounded-lg py-1 border border-green-900 text-white hover:border-green-900 hover:bg-white hover:text-green-900"
+              id="submit"
             >
-            LOGIN
-          </button>
-          <a href="./PWD1.html" target="_blank" class="text-center underline">reset password?</a>
+              LOGIN
+            </button>
+            <a href="./PWD1.html" target="_blank" class="text-center underline"
+              >forget password?</a
+            >
           </form>
         </div>
-      </div>                                                
+      </div>
     </div>
 
-    <script>
-      var form = document.getElementById("form");
-      var email = document.getElementById("email");
-      var pass = document.getElementById("pass");
-      var emailerror = document.getElementById("emailerror");
-      var passerror = document.getElementById("passerror");
-      var submit = document.getElementById("submit");
-
-      const firebaseConfig = {
-        apiKey: "AIzaSyCwO361fKrsk3HH221JLSn1Rj35gUcvjqo",
-        authDomain: "shyam-2601.firebaseapp.com",
-        databaseURL:
-          "https://shyam-2601-default-rtdb.asia-southeast1.firebasedatabase.app",
-        projectId: "shyam-2601",
-        storageBucket: "shyam-2601.firebasestorage.app",
-        messagingSenderId: "817828070818",
-        appId: "1:817828070818:web:a75ad3696f59eaa5069efb",
-      };
-
-      function savedata(email, pass) {
-        firebase.initializeApp(firebaseConfig);
-
-        const db = firebase.database().ref(db, "users/"+uid);
-
-        db.push({
-          email: email,
-          password: pass,
-        });
-      }
-
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        let isValid = aValidation(email.value, pass.value);
-        savedata(email.value, pass.value);
-      });
-
-      email.addEventListener("input", (e) => {
-        const emailregex = /^\S+@\S+\.\S+$/;
-        if (e.target.value == "") {
-          emailerror.textContent = "Email is required";
-        } else if (!e.target.value.match(emailregex)) {
-          emailerror.textContent = "Email format : Coding@gmail.com";
-        } else {
-          emailerror.textContent = "";
-        }
-      });
-
-      pass.addEventListener("input", (e) => {
-        const passregex =
-          /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
-        if (e.target.value == "") {
-          passerror.textContent = "Password is required";
-        } else if (!e.target.value.match(passregex)) {
-          passerror.textContent = "Password format : Coding@123";
-        } else {
-          passerror.textContent = "";
-        }
-      });
-
-      function aValidation(email, pass) {
-        const emailregex = /^\S+@\S+\.\S+$/;
-        const passregex =
-          /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
-
-        let isValid = true;
-
-        if (email.match(emailregex)) {
-          console.log("Valid email");
-        } else {
-          console.log("Invalid emmail");
-        }
-
-        if (pass.match(passregex)) {
-          console.log("Valid password");
-        } else {
-          console.log("Invalid password");
-        }
-
-        if (isValid) {
-          console.log("Data sent to DB");
-        }
-
-        setTimeout(() => {
-          form.reset();
-        }, 2000);
-
-        return isValid;
-      }
-    </script>
+    <script src="./login.js"></script>
   </body>
 </html>

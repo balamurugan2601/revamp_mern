@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Form1</title>
+    <title>pwd reset</title>
     <script
       defer
       src="https://www.gstatic.com/firebasejs/8.10.1/firebase.js"
@@ -31,28 +31,28 @@
           class="bg-white/20 border border-white/20 backdrop-blur-xl rounded-xl p-6 shadow-lg w-[250px]"
         >
           <h1 class="text-2xl text-center text-green-900 font-[Chillax-Bold]">
-            LOGIN
+            UPDATE PASSWORD
           </h1>
           <hr class="mt-4" />
-          <form class="flex flex-col gap-4 mt-4" id="form">
-            <div>
+          <form class="flex flex-col gap-2 mt-4" id="form">
+            <div class="space-y-2">
               <label for="text" class="text-green-900 text-2xl"
                 >New Password</label
               ><br />
               <input
-                type="text"
+                type="password"
                 id="newpass"
                 class="rounded-lg py-1.5 px-2 text-xl w-full"
                 placeholder="Create new password"
               />
               <p class="text-sm text-red-600" id="error"></p>
             </div>
-            <div>
+            <div class="space-y-2">
               <label for="text" class="text-green-900 text-2xl"
                 >Confirm Password</label
               ><br />
               <input
-                type="text"
+                type="password"
                 id="conpass"
                 class="rounded-lg py-1.5 px-2 text-xl w-full"
                 placeholder="Confirm your password"
@@ -71,91 +71,7 @@
       </div>
     </div>
 
-    <script>
-      var form = document.getElementById("form");
-      var newpass = document.getElementById("newpass");
-      var conpass = document.getElementById("conpass");
-      var error = document.getElementById("error");
-      var erro1 = document.getElementById("erro1");
-      var submit = document.getElementById("submit");
-
-      const firebaseConfig = {
-        apiKey: "AIzaSyCwO361fKrsk3HH221JLSn1Rj35gUcvjqo",
-        authDomain: "shyam-2601.firebaseapp.com",
-        databaseURL:
-          "https://shyam-2601-default-rtdb.asia-southeast1.firebasedatabase.app",
-        projectId: "shyam-2601",
-        storageBucket: "shyam-2601.firebasestorage.app",
-        messagingSenderId: "817828070818",
-        appId: "1:817828070818:web:a75ad3696f59eaa5069efb",
-      };
-
-      function savedata(email, pass) {
-        firebase.initializeApp(firebaseConfig);
-
-        const db = firebase.database().ref("dB");
-
-        db.push({
-          email: email,
-          password: pass,
-        });
-      }
-
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        let isValid = validation(newpass.value, conpass.value);
-      });
-
-      newpass.addEventListener("input", (e) => {
-        const regex =
-          /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
-        if (e.target.value == "") {
-          error.textContent = "Required*";
-        } else if (!e.target.value.match(regex)) {
-          error.textContent = "Format : Coding@123";
-        } else {
-          error.textContent = "";
-        }
-      });
-
-      conpass.addEventListener("input", (e) => {
-        if (e.target.value == "") {
-          error1.textContent = "Required*";
-        } else if (e.target.value != newpass.value) {
-          error1.textContent = "Password not matched";
-        } else {
-          error1.textContent = "";
-        }
-      });
-
-      function validation(newpass, oldpass) {
-        const isValid = true;
-        if ((newpass == "") & (oldpass == "")) {
-          error.textContent = "Required*";
-          error1.textContent = "Required*";
-          isValid = false;
-        } else if (newpass == "") {
-          error.textContent = "Required*";
-          isValid = false;
-        } else if (oldpass == "") {
-          error1.textContent = "Required*";
-          isValid = false;
-        } else {
-          error.textContent = "";
-          error1.textContent = "";
-        }
-
-        if (newpass != oldpass) {
-          isValid = false;
-          console.log("New password should not be same as old password");
-        }
-
-        setTimeout(() => {
-          form.reset();
-        }, 2000);
-
-        return isValid;
-      }
+    <script src="./pwd.js">
     </script>
   </body>
 </html>
