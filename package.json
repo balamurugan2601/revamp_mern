@@ -1,0 +1,27 @@
+{
+  "name": "revamp",
+  "version": "1.0.0",
+  
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/balamurugan2601/revamp_mern.git"
+  },
+  "author": "shyam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/balamurugan2601/revamp_mern/issues"
+  },
+  "homepage": "https://github.com/balamurugan2601/revamp_mern#readme",
+  "description": "",
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.15.1"
+  }
+}

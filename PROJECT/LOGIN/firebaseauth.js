@@ -23,7 +23,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-const signup = document.getElementById("submit");
+const signup = document.getElementById("signup");
 signup.addEventListener("click", (e) => {
   e.preventDefault();
   const email = document.getElementById("email").value;
