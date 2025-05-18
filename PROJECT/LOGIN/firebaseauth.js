@@ -30,6 +30,7 @@ signup.addEventListener("click", (e) => {
   const password = document.getElementById("password").value;
   const firstname = document.getElementById("firstname").value;
   const lastname = document.getElementById("lastname").value;
+
   const form = document.getElementById("form");
   const auth = getAuth();
   const db = getFirestore();
@@ -45,7 +46,7 @@ signup.addEventListener("click", (e) => {
       const docRef = doc(db, "/users", user.uid);
       setDoc(docRef, userData)
         .then(() => {
-          window.location.href = 'signin.html';
+          window.location.href = "index.html";
           console.log("Document written with ID: ", user.uid);
           setTimeout(() => {
             form.reset();
@@ -53,7 +54,29 @@ signup.addEventListener("click", (e) => {
         })
         .catch((error) => {
           console.error("Error adding document: ", error);
-        }); 
+        });
     }
   );
+});
+
+const signin = document.getElementById("signin");
+signin.addEventListener("click", (e) => {
+  e.preventDefault();
+  const lemail = document.getElementById("lemail").value;
+  const lpassword = document.getElementById("lpassword").value;
+  const auth = getAuth();
+  signInWithEmailAndPassword(auth, lemail, lpassword)
+    .then((userCredentials) => {
+      const user = userCredentials.user;
+      alert("User Signed In");
+      window.location.href = "homepage.html";
+      console.log(user);
+      localStorage.setItem("loggedInUser", user.uid);
+      setTimeout(() => {
+        form.reset();
+      }, 2000);
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
 });
