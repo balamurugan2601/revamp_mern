@@ -5,8 +5,87 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <h1 class="text-red-600 text-[100px]">Hello</h1>
-    <h2>Hello</h2>
+    <script crossorigin="" src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin="" src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <div class="3xl:container w-screen font-[Montserrat] bg-[url(https://ik.imagekit.io/shyambala/1075604_181.jpg?updatedAt=1747492292500)] bg-cover" id="sign_up">
+      <div class="w-full h-screen md:w-[95%] md:h-screen mx-auto flex flex-col justify-center items-center">
+        <div class="w-[280px] md:w-fit h-fit mx-auto grid grid-cols-1 md:grid-cols-2 md:gap-6 rounded-[30px] shadow-xl bg-[#89CFF0]/75 backdrop-blur-sm md:p-6">
+          <div class="mx-auto md:rounded-[24px] md:w-[300px] md:h-[400px] bg-no-repeat bg-center shadow-lg bg-cover bg-[url(https://ik.imagekit.io/shyambala/6912353.jpg?updatedAt=1747311347394)] rounded-t-[30px] rounded-b-[170px] w-full h-[250px]"></div>
+          <div class="font-[Montserrat] text-black md:flex md:flex-col md:justify-center m-3">
+            <div class="md:space-y-3">
+              <h1 class="text-2xl text-center md:text-4xl md:text-start text-white font-semibold mb-2">
+                Create an account
+              </h1>
+              <p class="text-[12px] text-center md:text-[14px] md:text-start text-slate-700">
+                Already have an account?
+                <button id="sign_in_a" class="underline text-[#036491]">
+                  Sign In
+                </button>
+              </p>
+            </div>
+            <div class="md:mt-4">
+              <form class="mt-4 space-y-3" id="form">
+                <div class="flex flex-col gap-3 md:flex md:justify-between w-full md:gap-3">
+                  <input type="text" id="firstname" class="rounded-lg w-full h-[34px] bg-white p-3 text-[#036491] text-md font-normal" placeholder="First Name">
+                  <input type="text" id="lastname" class="rounded-lg w-full h-[34px] bg-white p-3 text-[#036491] text-md" placeholder="Last Name">
+                </div>
+                <div class="space-y-2">
+                  <input type="text" id="email" class="rounded-lg w-full h-[34px] bg-white p-3 text-[#036491] text-md" placeholder="Email">
+                  <p class="text-sm text-red-600" id="emailerror"></p>
+                  <input type="password" id="password" class="rounded-lg w-full h-[34px] bg-white p-3 text-[#036491] text-md" placeholder="Password">
+                  <p class="text-sm text-red-600" id="passerror"></p>
+                </div>
+              </form>
+            </div>
+            <div class="flex mt-4 gap-2">
+              <input type="checkbox">
+              <label for="checkbox" class="text-[12px] text-start">I Agree to the
+                <a href="" class="text-[#036491] underline">Terms and Conditions</a></label>
+            </div>
+            <p class="text-sm text-red-600 hidden">
+              You must agree to the terms and conditions to continue.
+            </p>
+            <button id="signup" class="bg-[#036491] rounded-[30px] md:rounded-lg text-white text-[12px] md:text-[14px] w-full h-[34px] mt-4 hover:bg-white hover:text-[#036491]">
+              Create account
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="3xl:container w-screen font-[Montserrat] bg-[url(https://ik.imagekit.io/shyambala/1075604_181.jpg?updatedAt=1747492292500)] bg-cover hidden" id="sign_in">
+      <div class="w-full h-screen md:w-[95%] md:h-screen mx-auto flex flex-col justify-center items-center">
+        <div class="w-[280px] md:w-fit h-fit mx-auto grid grid-cols-1 md:grid-cols-2 md:gap-6 rounded-[30px] shadow-xl bg-[#89CFF0]/75 backdrop-blur-lg md:p-6">
+          <div class="mx-auto md:rounded-[24px] md:w-[300px] md:h-[400px] bg-no-repeat bg-center bg-cover bg-[url(https://ik.imagekit.io/shyambala/6912353.jpg?updatedAt=1747311347394)] rounded-t-[30px] rounded-b-[170px] w-full h-[250px]"></div>
+          <div class="font-[Montserrat] text-black md:flex md:flex-col md:justify-center m-3">
+            <div class="space-y-3">
+              <h1 class="text-3xl text-center md:text-4xl md:text-start text-white font-semibold mb-2">
+                Sign in
+              </h1>
+
+              <p class="text-[12px] text-center md:text-[14px] md:text-start text-slate-700">
+                Don't have an account?
+                <button id="sign_up_a" class="underline text-[#036491]">
+                  Sign Up
+                </button>
+              </p>
+            </div>
+            <div class="mt-4">
+              <form class="mt-4 space-y-3">
+                <div class="space-y-3">
+                  <input type="text" id="lemail" class="rounded-lg w-full h-[34px] bg-white p-3 text-[#036491] text-md" placeholder="Email">
+                  <br>
+                  <input type="password" id="lpassword" class="rounded-lg w-full h-[34px] bg-white p-3 text-[#036491] text-md" placeholder="Password">
+                </div>
+              </form>
+            </div>
+            <button class="bg-[#036491] rounded-[30px] md:rounded-lg text-white text-[12px] md:text-[14px] w-full h-[34px] mt-4 hover:bg-white hover:text-[#036491]" id="signin">
+              Sign in
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   
 
 <script src="/REACT.3464ddca.js"></script></body></html>
