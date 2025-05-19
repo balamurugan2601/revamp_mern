@@ -10,23 +10,29 @@
     <script type="module" src="firebaseauth.js"></script>
   </head>
   <body>
+    <!-- sign up block -->
     <div
       class="3xl:container w-screen font-[Montserrat] bg-[url(https://ik.imagekit.io/shyambala/1075604_181.jpg?updatedAt=1747492292500)] bg-cover"
       id="sign_up"
     >
+      <!-- main container -->
       <div
         class="w-full h-screen md:w-[95%] md:h-screen mx-auto flex flex-col justify-center items-center"
       >
+        <!-- safety container -->
         <div
           class="w-[280px] md:w-fit h-fit mx-auto grid grid-cols-1 md:grid-cols-2 md:gap-6 rounded-[30px] shadow-xl bg-[#89CFF0]/75 backdrop-blur-sm md:p-6"
         >
+          <!-- image -->
           <div
             class="mx-auto md:rounded-[24px] md:w-[300px] md:h-[400px] bg-no-repeat bg-center shadow-lg bg-cover bg-[url(https://ik.imagekit.io/shyambala/6912353.jpg?updatedAt=1747311347394)] rounded-t-[30px] rounded-b-[170px] w-full h-[250px]"
           ></div>
+          <!-- sign up container -->
           <div
             class="font-[Montserrat] text-black md:flex md:flex-col md:justify-center m-3"
           >
-            <div class="md:space-y-3">
+            <!-- Heading division -->
+            <div class="md:space-y-2.5">
               <h1
                 class="text-2xl text-center md:text-4xl md:text-start text-white font-semibold mb-2"
               >
@@ -41,24 +47,33 @@
                 </button>
               </p>
             </div>
+            <!-- form division -->
             <div class="md:mt-4">
-              <form class="mt-4 space-y-3" id="form">
+              <form class="mt-4 space-y-2" id="signin_form">
+                <!-- fname and lname division -->
                 <div
-                  class="flex flex-col gap-3 md:flex md:justify-between w-full md:gap-3"
+                  class="flex flex-col gap-3 md:flex md:justify-between w-full md:gap-2"
                 >
+                  <!-- firstname -->
                   <input
                     type="text"
                     id="firstname"
-                    class="rounded-lg w-full h-[34px] bg-white p-3 text-[#036491] text-md font-normal"
+                    class="rounded-lg w-full h-[34px] bg-white p-3 text-[#036491] text-md"
                     placeholder="First Name"
+                    style="text-transform: capitalize"
                   />
+                  <p class="text-red-600 text-sm" id="firstnameerror"></p>
+                  <!-- lastname -->
                   <input
                     type="text"
                     id="lastname"
                     class="rounded-lg w-full h-[34px] bg-white p-3 text-[#036491] text-md"
                     placeholder="Last Name"
+                    style="text-transform: capitalize"
                   />
+                  <p class="text-red-600 text-sm" id="lastnameerror"></p>
                 </div>
+                <!-- email, pass division -->
                 <div class="space-y-2">
                   <input
                     type="text"
@@ -66,6 +81,7 @@
                     class="rounded-lg w-full h-[34px] bg-white p-3 text-[#036491] text-md"
                     placeholder="Email"
                   />
+                  <!-- error message for email -->
                   <p class="text-sm text-red-600" id="emailerror"></p>
                   <input
                     type="password"
@@ -73,24 +89,28 @@
                     class="rounded-lg w-full h-[34px] bg-white p-3 text-[#036491] text-md"
                     placeholder="Password"
                   />
+                  <!-- error message for password -->
                   <p class="text-sm text-red-600" id="passerror"></p>
                 </div>
               </form>
             </div>
+            <!-- checkbox division -->
             <div class="flex mt-4 gap-2">
               <input type="checkbox" />
-              <label for="checkbox" class="text-[12px] text-start"
+              <label for="checkbox" id="checkbox" class="text-[12px] text-start"
                 >I Agree to the
                 <a href="" class="text-[#036491] underline"
                   >Terms and Conditions</a
                 ></label
               >
             </div>
+            <!-- error messge for checkbox -->
             <p class="text-sm text-red-600 hidden">
               You must agree to the terms and conditions to continue.
             </p>
+            <!-- sign up button -->
             <button
-              id="signup"
+              id="signup_btn"
               class="bg-[#036491] rounded-[30px] md:rounded-lg text-white text-[12px] md:text-[14px] w-full h-[34px] mt-4 hover:bg-white hover:text-[#036491]"
             >
               Create account
@@ -100,29 +120,34 @@
       </div>
     </div>
 
+    <!-- sign in block -->
     <div
       class="3xl:container w-screen font-[Montserrat] bg-[url(https://ik.imagekit.io/shyambala/1075604_181.jpg?updatedAt=1747492292500)] bg-cover hidden"
       id="sign_in"
     >
+      <!-- main container -->
       <div
         class="w-full h-screen md:w-[95%] md:h-screen mx-auto flex flex-col justify-center items-center"
       >
+        <!-- safety container -->
         <div
           class="w-[280px] md:w-fit h-fit mx-auto grid grid-cols-1 md:grid-cols-2 md:gap-6 rounded-[30px] shadow-xl bg-[#89CFF0]/75 backdrop-blur-lg md:p-6"
         >
+          <!-- image container -->
           <div
             class="mx-auto md:rounded-[24px] md:w-[300px] md:h-[400px] bg-no-repeat bg-center bg-cover bg-[url(https://ik.imagekit.io/shyambala/6912353.jpg?updatedAt=1747311347394)] rounded-t-[30px] rounded-b-[170px] w-full h-[250px]"
           ></div>
+          <!-- sign in container -->
           <div
-            class="font-[Montserrat] text-black md:flex md:flex-col md:justify-center m-3"
+            class="font-[Montserrat] text-black md:flex md:flex-col md:justify-center m-4"
           >
-            <div class="space-y-3">
+            <!-- Heading division -->
+            <div class="space-y-2.5">
               <h1
-                class="text-3xl text-center md:text-4xl md:text-start text-white font-semibold mb-2"
+                class="text-2xl text-center md:text-4xl md:text-start text-white font-semibold mb-2"
               >
                 Sign in
               </h1>
-
               <p
                 class="text-[12px] text-center md:text-[14px] md:text-start text-slate-700"
               >
@@ -132,28 +157,36 @@
                 </button>
               </p>
             </div>
-            <div class="mt-4">
-              <form class="mt-4 space-y-3">
-                <div class="space-y-3">
+            <!-- Sign in form -->
+            <div class="md:mt-4">
+              <form class="mt-4 space-y-2" id="signup_form">
+                <!-- signin, pass division -->
+                <div class="space-y-2">
+                  <!-- sign in email -->
                   <input
                     type="text"
                     id="lemail"
                     class="rounded-lg w-full h-[34px] bg-white p-3 text-[#036491] text-md"
                     placeholder="Email"
                   />
-                  <br />
+                  <!-- error message for email -->
+                  <p class="text-sm text-red-600" id="emailerror"></p>
+                  <!-- sing in password -->
                   <input
                     type="password"
                     id="lpassword"
                     class="rounded-lg w-full h-[34px] bg-white p-3 text-[#036491] text-md"
                     placeholder="Password"
                   />
+                  <!-- error message for password -->
+                  <p class="text-sm text-red-600" id="passerror"></p>
                 </div>
               </form>
             </div>
+            <!-- sign in button -->
             <button
               class="bg-[#036491] rounded-[30px] md:rounded-lg text-white text-[12px] md:text-[14px] w-full h-[34px] mt-4 hover:bg-white hover:text-[#036491]"
-              id="signin"
+              id="signin_btn"
             >
               Sign in
             </button>
@@ -161,6 +194,7 @@
         </div>
       </div>
     </div>
+
     <script src="./script.js"></script>
   </body>
 </html>

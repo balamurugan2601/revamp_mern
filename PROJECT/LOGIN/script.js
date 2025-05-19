@@ -19,7 +19,13 @@ var lemail = document.getElementById("lemail");
 var lpassword = document.getElementById("lpassword");
 var emailerror = document.getElementById("emailerror");
 var passerror = document.getElementById("passerror");
-var signup = document.getElementById("signup");
+var signup_btn = document.getElementById("signup_btn");
+var signin_btn = document.getElementById("signin_btn");
+var checkbox = document.getElementById("checkbox");
+var firstname = document.getElementById("firstname");
+var lastname = document.getElementById("lastname");
+var firstnameerror = document.getElementById("firstnameerror");
+var lastnameerror = document.getElementById("lastnameerror");
 
 const emailregex =
   /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
@@ -55,6 +61,19 @@ password.addEventListener("input", (e) => {
   }
 });
 
-signup.addEventListener("click", () => {
-  console.dir(signup);
+firstname.addEventListener("input", (e) => {
+  if (e.target.value == "") {
+    firstnameerror.textContent = "First Name is required";
+  } else {
+    firstnameerror.textContent = "";
+  }
 });
+
+lastname.addEventListener("input", (e) => {
+  if (e.target.value == "") {
+    lastnameerror.textContent = "Last Name is required";
+  } else {
+    lastnameerror.textContent = "";
+  }
+});
+

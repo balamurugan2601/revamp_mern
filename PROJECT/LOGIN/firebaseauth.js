@@ -23,8 +23,8 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-const signup = document.getElementById("signup");
-signup.addEventListener("click", (e) => {
+const signup_btn = document.getElementById("signup_btn");
+signup_btn.addEventListener("click", (e) => {
   e.preventDefault();
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
@@ -59,8 +59,8 @@ signup.addEventListener("click", (e) => {
   );
 });
 
-const signin = document.getElementById("signin");
-signin.addEventListener("click", (e) => {
+const signin_btn = document.getElementById("signin_btn");
+signin_btn.addEventListener("click", (e) => {
   e.preventDefault();
   const lemail = document.getElementById("lemail").value;
   const lpassword = document.getElementById("lpassword").value;
