@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interactive Resume Builder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <form id="resume-form">
+      <h2>Build Your Resume</h2>
+
+      <label>Name: <input type="text" id="name"></label>
+      <label>Email: <input type="email" id="email"></label>
+      <label>Phone: <input type="text" id="phone"></label>
+      <label>Profile Summary:
+        <textarea id="summary"></textarea>
+      </label>
+
+      <div id="education-section">
+        <label>Education:</label>
+        <div class="edu-entry">
+          <input type="text" placeholder="Degree" class="edu-input">
+        </div>
+        <button type="button" onclick="addEducation()">+ Add More</button>
+      </div>
+
+      <div id="experience-section">
+        <label>Experience:</label>
+        <div class="exp-entry">
+          <input type="text" placeholder="Job Role" class="exp-input">
+        </div>
+        <button type="button" onclick="addExperience()">+ Add More</button>
+      </div>
+
+      <label>Skills:
+        <input type="text" id="skills" placeholder="e.g., HTML, CSS, JS (comma-separated)">
+      </label>
+
+      <button type="button" onclick="clearForm()">Clear Form</button>
+    </form>
+
+    <div class="resume-preview">
+      <h2 id="prev-name">Your Name</h2>
+      <p id="prev-email"></p>
+      <p id="prev-phone"></p>
+      <h3>Profile</h3>
+      <p id="prev-summary"></p>
+
+      <h3>Education</h3>
+      <ul id="prev-edu"></ul>
+
+      <h3>Experience</h3>
+      <ul id="prev-exp"></ul>
+
+      <h3>Skills</h3>
+      <ul id="prev-skills"></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
